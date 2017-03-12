@@ -1,5 +1,6 @@
 const fs = require('fs');
 const D3Node = require('d3-node');
+const output = require('d3node-output');
 const d3 = require('d3'); // v3.5.17
 const tsvString = fs.readFileSync('data/barchart.tsv').toString();
 
