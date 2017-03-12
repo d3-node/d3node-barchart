@@ -2,7 +2,7 @@ const fs = require('fs');
 const D3Node = require('d3-node');
 const output = require('d3node-output');
 const d3 = require('d3'); // v3.5.17
-const tsvString = fs.readFileSync('data/barchart.tsv').toString();
+const tsvString = fs.readFileSync('data/data.tsv').toString();
 
 const styles = '.bar{fill: steelblue;} .bar:hover{fill: brown;} .axis{font: 10px sans-serif;} .axis path,.axis line{fill: none;stroke: #000;shape-rendering: crispEdges;} .x.axis path{display: none;}';
 const markup = '<div id="container"><h2>Bar Chart</h2><div id="chart"></div></div>';
@@ -73,4 +73,4 @@ svg.selectAll('.bar')
 /// -- end D3 code
 
 // create output files
-output('dist/bar-chart', d3n);
+output('dist/output', d3n);

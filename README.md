@@ -6,4 +6,4 @@ $ npm start
 ```
 
 ### Output (png):
-![chart](dist/bar-chart.png)
+![chart](dist/output.png)
