@@ -1,0 +1,22 @@
+{
+  "name": "d3node-barchart",
+  "version": "0.0.1",
+  "description": "D3-Node BarChart",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "d3",
+    "cli",
+    "node"
+  ],
+  "author": "Brad Oyler",
+  "license": "MIT",
+  "dependencies": {
+    "d3": "3.5.17",
+    "d3-node": "1.0.0",
+    "d3node-output": "0.0.1"
+  }
+}
