@@ -1,9 +1,18 @@
 ## BarChart
 
+BarChart generator in node.js.
+
+
+### Output the visualization result to a image
+
 ```
-$ npm install
-$ npm start
+npm run build
 ```
 
-### Output (png):
+### Output Preview (png):
 ![chart](dist/output.png)
+
+
+### LICENSE
+
+[MIT](LICENSE) &copy; [d3-node](https://github.com/d3-node)
