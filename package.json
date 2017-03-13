@@ -16,7 +16,6 @@
   "author": "Brad Oyler",
   "license": "MIT",
   "dependencies": {
-    "d3": "3.5.17",
     "d3-node": "1.0.0",
     "d3node-output": "0.0.1"
   }
