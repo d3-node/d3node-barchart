@@ -11,7 +11,7 @@ npm install d3node-barchart
 ## Usage
 
 ```js
-const d3nBar = require('d3-node-bar');
+const d3nBar = require('d3node-barchart');
 const bar = d3nBar(data, selector, container, style)
 ```
 
