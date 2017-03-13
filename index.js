@@ -1,17 +1,28 @@
-const fs = require('fs');
 const D3Node = require('d3-node');
 const d3 = require('d3'); // v3.5.17
-const tsvString = fs.readFileSync('data/data.tsv').toString();
 
-function bar () {
-  const styles = '.bar{fill: steelblue;} .bar:hover{fill: brown;} .axis{font: 10px sans-serif;} .axis path,.axis line{fill: none;stroke: #000;shape-rendering: crispEdges;} .x.axis path{display: none;}';
-  const markup = '<div id="container"><h2>Bar Chart</h2><div id="chart"></div></div>';
+const defaultContainer = `
+<div id="container">
+  <h2>Bar Chart</h2>
+  <div id="chart"></div>
+</div>
+`;
+const defaultStyle = `
+.bar{fill: steelblue;}
+.bar:hover{fill: brown;}
+.axis{font: 10px sans-serif;}
+.axis path,.axis line{fill: none;stroke: #000;shape-rendering: crispEdges;}
+.x.axis path{display: none;}
+`;
+
+function bar (data, selector = '#chart', container = defaultContainer, style = defaultStyle/*, options*/) {
 
   var d3n = new D3Node({
-    selector:'#chart',
-    svgStyles:styles,
-    container:markup
+    selector: selector,
+    svgStyles: style,
+    container: container
   });
+
 
   // adapted from: https://bl.ocks.org/mbostock/6406992
   ///-- start D3 code
@@ -31,7 +42,7 @@ function bar () {
     .orient('bottom');
 
   var yAxis = d3.svg.axis()
-      .scale(y)
+    .scale(y)
     .orient('left')
     .ticks(10, '%');
 
@@ -41,7 +52,6 @@ function bar () {
     .append('g')
     .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
-  var data = d3.tsv.parse(tsvString);
 
   x.domain(data.map((d) => d.letter));
   y.domain([0, d3.max(data, (d) => d.frequency)]);
