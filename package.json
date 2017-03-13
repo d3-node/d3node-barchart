@@ -1,6 +1,6 @@
 {
   "name": "d3node-barchart",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "D3-Node example - BarChart",
   "main": "index.js",
   "scripts": {
