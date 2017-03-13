@@ -2,11 +2,10 @@
 
 BarChart generator in node.js.
 
-
 ## Install
 
 ```bash
-npm install d3-node-bar
+npm install d3node-barchart
 ```
 
 ## Usage
@@ -26,7 +25,7 @@ npm run build
 
 ## Output Preview (png):
 
-![chart](dist/output.png)
+![chart](https://raw.githubusercontent.com/d3-node/d3node-barchart/master/example/output.png)
 
 
 ## API

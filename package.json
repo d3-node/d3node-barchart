@@ -8,6 +8,10 @@
     "build": "node ./example/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/d3-node/d3node-barchart.git"
+  },
   "keywords": [
     "d3",
     "cli",

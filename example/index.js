@@ -7,4 +7,4 @@ const csvString = fs.readFileSync('data/data.csv').toString();
 var data = d3.csvParse(csvString);
 
 // create output files
-output('./dist/output', d3nBar(data));
+output('./example/output', d3nBar(data));
