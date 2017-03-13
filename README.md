@@ -37,42 +37,36 @@ npm run build
 
 ##### data
 
-Type: `Array`<br>
+- Type: `Array`
 
 Data from file or web processed by d3 library.
 
 ##### selector
 
-Type: `String`<br>
-Default: `'#chart'`
+- Type: `String`
+- Default: `'#chart'`
 
 DOM selector in container.
 
 ##### container
 
-Type: `String`<br>
-Default: `
-<div id="container">
-  <h2>Bar Chart</h2>
-  <div id="chart"></div>
-</div>
-`
+- Type: `String`
+- Default: `<div id="container"><h2>Bar Chart</h2><div id="chart"></div></div>`
 
 DOM contain the visualization result.
 
 ##### style
 
-Type: `String`<br>
-Default: `
+- Type: `String`<br>
+- Default:
+```html
 .bar{fill: steelblue;}
 .bar:hover{fill: brown;}
 .axis{font: 10px sans-serif;}
 .axis path,.axis line{fill: none;stroke: #000;shape-rendering: crispEdges;}
 .x.axis path{display: none;}
-`
-
+```
 Barchart style.
-
 
 ## Contributing
 
