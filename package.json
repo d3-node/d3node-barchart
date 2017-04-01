@@ -4,8 +4,7 @@
   "description": "D3-Node example - BarChart",
   "main": "index.js",
   "scripts": {
-    "start": "node .",
-    "build": "node ./example/index.js",
+    "start": "node ./example",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
