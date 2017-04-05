@@ -1,37 +1,36 @@
 const D3Node = require('d3-node');
 
-const defaultContainer = `
-<div id="container">
-  <h2>Bar Chart</h2>
-  <div id="chart"></div>
-</div>
-`;
-const defaultStyle = `
-.bar{fill: steelblue;}
-.bar:hover{fill: brown;}
-.axis{font: 10px sans-serif;}
-.axis path,.axis line{fill: none;stroke: #000;shape-rendering: crispEdges;}
-.x.axis path{display: none;}
-`;
-
-function bar (data, selector = '#chart', container = defaultContainer, style = defaultStyle/*, options*/) {
-
+function bar({
+  data,
+  selector: defaultSelector = '#chart',
+  container: defaultContainer = `
+    <div id="container">
+      <h2>Bar Chart</h2>
+      <div id="chart"></div>
+    </div>
+  `,
+  style: defaultStyle = `
+    .bar{fill: steelblue;}
+    .bar:hover{fill: brown;}
+    .axis{font: 10px sans-serif;}
+    .axis path,.axis line{fill: none;stroke: #000;shape-rendering: crispEdges;}
+    .x.axis path{display: none;}
+  `
+} = {}) {
   const d3n = new D3Node({
-    selector: selector,
-    svgStyles: style,
-    container: container
+    selector: defaultSelector,
+    svgStyles: defaultStyle,
+    container: defaultContainer
   });
 
   const d3 = d3n.d3;
 
   // adapted from: https://bl.ocks.org/d3noob/bdf28027e0ce70bd132edc64f1dd7ea4
-  ///-- start D3 code
-
   const margin = { top: 20, right: 20, bottom: 30, left: 40 };
   const width = 960 - margin.left - margin.right;
   const height = 500 - margin.top - margin.bottom;
 
- // set the ranges
+  // set the ranges
   const x = d3.scaleBand()
           .range([0, width])
           .padding(0.1);
@@ -45,18 +44,18 @@ function bar (data, selector = '#chart', container = defaultContainer, style = d
     .append('g')
     .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
-  x.domain(data.map((d) => d.xAxis));
-  y.domain([0, d3.max(data, (d) => d.yAxis)]);
+  x.domain(data.map((d) => d.key));
+  y.domain([0, d3.max(data, (d) => d.value)]);
 
   // append the rectangles for the bar chart
   svg.selectAll('.bar')
       .data(data)
-    .enter().append('rect')
+      .enter().append('rect')
       .attr('class', 'bar')
-      .attr('x', (d) => x(d.xAxis))
+      .attr('x', (d) => x(d.key))
       .attr('width', x.bandwidth())
-      .attr('y', (d) => y(d.yAxis))
-      .attr('height', (d) => height - y(d.yAxis));
+      .attr('y', (d) => y(d.value))
+      .attr('height', (d) => height - y(d.value));
 
   // add the x Axis
   svg.append('g')
@@ -65,7 +64,6 @@ function bar (data, selector = '#chart', container = defaultContainer, style = d
 
   // add the y Axis
   svg.append('g').call(d3.axisLeft(y));
-  /// -- end D3 code
 
   return d3n;
 }
