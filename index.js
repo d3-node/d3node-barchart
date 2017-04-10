@@ -2,14 +2,14 @@ const D3Node = require('d3-node');
 
 function bar({
   data,
-  selector: defaultSelector = '#chart',
-  container: defaultContainer = `
+  selector: _selector = '#chart',
+  container: _container = `
     <div id="container">
       <h2>Bar Chart</h2>
       <div id="chart"></div>
     </div>
   `,
-  style: defaultStyle = `
+  style: _style = `
     .bar{fill: steelblue;}
     .bar:hover{fill: brown;}
     .axis{font: 10px sans-serif;}
@@ -18,9 +18,9 @@ function bar({
   `
 } = {}) {
   const d3n = new D3Node({
-    selector: defaultSelector,
-    svgStyles: defaultStyle,
-    container: defaultContainer
+    selector: _selector,
+    svgStyles: _style,
+    container: _container
   });
 
   const d3 = d3n.d3;
