@@ -40,9 +40,7 @@ function bar({
   const y = d3.scaleLinear()
           .range([height, 0]);
 
-  const svg = d3n.createSVG()
-    .attr('width', _width)
-    .attr('height', _height)
+  const svg = d3n.createSVG(_width, _height)
     .append('g')
     .attr('transform', `translate(${_margin.left}, ${_margin.top})`);
 
