@@ -23,7 +23,7 @@ function bar({
 
   const d3n = new D3Node({
     selector: _selector,
-    svgStyles: _svgStyles + _style,
+    styles: _svgStyles + _style,
     container: _container
   });
 
