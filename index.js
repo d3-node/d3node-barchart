@@ -1,5 +1,12 @@
 const D3Node = require('d3-node');
 
+const defaultMargins = ({ xAxis, yAxis } = {}) => ({
+  top: 20,
+  right: 20,
+  bottom: xAxis ? 40 : 30,
+  left: yAxis ? 50 : 40,
+})
+
 function bar({
   data,
   selector: _selector = '#chart',
@@ -12,9 +19,10 @@ function bar({
   style: _style = '',
   width: _width = 960,
   height: _height = 500,
-  margin: _margin = { top: 20, right: 20, bottom: 30, left: 40 },
+  margin: _margin = defaultMargins(arguments[0].labels),
   barColor: _barColor = 'steelblue',
   barHoverColor: _barHoverColor = 'brown',
+  labels: _labels = { xAxis: '', yAxis: '' },
 } = {}) {
   const _svgStyles = `
     .bar { fill: ${_barColor}; }
@@ -24,7 +32,7 @@ function bar({
   const d3n = new D3Node({
     selector: _selector,
     styles: _svgStyles + _style,
-    container: _container
+    container: _container,
   });
 
   const d3 = d3n.d3;
@@ -59,11 +67,26 @@ function bar({
 
   // add the x Axis
   svg.append('g')
-      .attr('transform', `translate(0,${height})`)
+      .attr('transform', `translate(0, ${height})`)
       .call(d3.axisBottom(x));
+
+  // text label for the x Axis
+  svg.append('text')
+      .attr('transform', `translate(${width / 2}, ${height + _margin.bottom - 5})`)
+      .style('text-anchor', 'middle')
+      .text(_labels.xAxis);
 
   // add the y Axis
   svg.append('g').call(d3.axisLeft(y));
+
+  // text label for the y Axis
+  svg.append('text')
+    .attr('transform', 'rotate(-90)')
+    .attr('y', 0 - _margin.left)
+    .attr('x',0 - (height / 2))
+    .attr('dy', '1em')
+    .style('text-anchor', 'middle')
+    .text(_labels.yAxis);
 
   return d3n;
 }
