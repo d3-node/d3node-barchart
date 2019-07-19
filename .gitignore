@@ -1,3 +1,8 @@
+# Dependencies
 node_modules
 
+# Logs
 npm-debug.log
+
+# IDEs
+.idea

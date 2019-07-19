@@ -65,7 +65,37 @@ DOM contain the visualization result.
 .axis path,.axis line{fill: none;stroke: #000;shape-rendering: crispEdges;}
 .x.axis path{display: none;}
 ```
-Barchart style.
+
+##### width
+
+- Type: `Number`
+- Default: `960`
+
+##### height
+
+- Type: `Number`
+- Default: `500`
+
+##### margin
+
+- Type: `Object`
+- Default without labels: `{ top: 20, right: 20, bottom: 30, left: 40 }`
+- Default with labels: `{ top: 20, right: 20, bottom: 40, left: 50 }`
+
+##### barColor
+
+- Type: `String`
+- Default: `steelblue`
+
+##### barHoverColor
+
+- Type: `String`
+- Default: `brown`
+
+##### labels
+
+- Type: `Object`
+- Default: `{ xAxis: '', yAxis: '' }`
 
 ## Contributing
 
