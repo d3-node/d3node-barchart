@@ -12,7 +12,7 @@ npm install d3node-barchart
 
 ```js
 const d3nBar = require('d3node-barchart');
-const bar = d3nBar(data, selector, container, style)
+const bar = d3nBar({data: data, selector: selector, container: container, style: style})
 ```
 
 Check out the [example](./example) for usage.
@@ -30,31 +30,29 @@ npm start
 
 ## API
 
-### d3nBar(data[, selector, container, style])
+### d3nBar({data[, selector, container, style]})
 
-#### options
-
-##### data
+#### data
 
 - Type: `Array`
 
 Data from file or web processed by d3 library.
 
-##### selector
+#### selector
 
 - Type: `String`
 - Default: `'#chart'`
 
 DOM selector in container.
 
-##### container
+#### container
 
 - Type: `String`
 - Default: `<div id="container"><h2>Bar Chart</h2><div id="chart"></div></div>`
 
 DOM contain the visualization result.
 
-##### style
+#### style
 
 - Type: `String`<br>
 - Default:
